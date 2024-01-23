@@ -11,13 +11,15 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import frc.robot.commands.DriveWithController;
 import frc.robot.commands.ShootWithController;
 import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Shooter;
 
 public class RobotContainer {
   private DriveTrain m_driveTrain = new DriveTrain();
+  private Shooter m_shooter = new Shooter();
   private CommandXboxController m_controller = new CommandXboxController(0);
   public RobotContainer() {
     m_driveTrain.setDefaultCommand(new DriveWithController(m_driveTrain, m_controller, 0.85));
-
+    m_shooter.setDefaultCommand(new ShootWithController(false));
     configureBindings();
   }
 
@@ -27,7 +29,7 @@ public class RobotContainer {
     m_controller.y()
       .whileTrue(new DriveWithController(m_driveTrain, m_controller, 0.25));
     m_controller.a()
-      .whileTrue(new ShootWithController());
+      .whileTrue(new ShootWithController(true));
   }
 
   public Command getAutonomousCommand() {

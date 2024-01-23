@@ -11,8 +11,13 @@ import frc.robot.subsystems.Shooter;
 public class ShootWithController extends CommandBase {
   private Shooter m_shooter = new Shooter();
 
-  public ShootWithController() {
-    m_shooter.shoot();
+  public ShootWithController(boolean go) {
+    if(go){
+      m_shooter.shoot();
+    }
+    else{
+      m_shooter.stop();
+    }
   }
 
   // Called when the command is initially scheduled.
