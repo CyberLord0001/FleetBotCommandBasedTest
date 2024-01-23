@@ -6,8 +6,8 @@ package frc.robot;
 
 
 import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.Commands;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.robot.commands.Auto;
 import frc.robot.commands.DriveWithController;
 import frc.robot.commands.Shoot;
 import frc.robot.subsystems.DriveTrain;
@@ -32,6 +32,6 @@ public class RobotContainer {
   }
 
   public Command getAutonomousCommand() {
-    return Commands.print("No autonomous command configured");
+    return(new Auto(m_driveTrain, m_controller, m_shooter));
   }
 }
