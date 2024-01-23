@@ -18,10 +18,12 @@ public class DriveTrain extends SubsystemBase {
   private MotorControllerGroup m_rightMotors = new MotorControllerGroup(m_right1, m_right2);
   private DifferentialDrive m_differentialDrive = new DifferentialDrive(m_leftMotors, m_rightMotors);
   /** Creates a new DriveTrain. */
-  public DriveTrain() {}
+  public DriveTrain() {
+    m_rightMotors.setInverted(true);
+  }
 
   public void drive(double forwardsSpeed, double turningSpeed){
-    m_differentialDrive.arcadeDrive(turningSpeed, forwardsSpeed);
+    m_differentialDrive.arcadeDrive(forwardsSpeed, turningSpeed);
   }
   public void stop(){
     m_differentialDrive.arcadeDrive(0, 0);

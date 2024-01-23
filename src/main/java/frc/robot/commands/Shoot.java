@@ -8,16 +8,11 @@ package frc.robot.commands;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Shooter;
 
-public class ShootWithController extends CommandBase {
+public class Shoot extends CommandBase {
   private Shooter m_shooter = new Shooter();
 
-  public ShootWithController(boolean go) {
-    if(go){
-      m_shooter.shoot();
-    }
-    else{
-      m_shooter.stop();
-    }
+  public Shoot() {
+    m_shooter.shoot();
   }
 
   // Called when the command is initially scheduled.
@@ -32,7 +27,9 @@ public class ShootWithController extends CommandBase {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    m_shooter.stop();
+  }
 
   // Returns true when the command should end.
   @Override
