@@ -14,7 +14,9 @@ public class Shooter extends SubsystemBase {
     private MotorControllerGroup m_shooters = new MotorControllerGroup(m_shooter1, m_shooter2);
   /** Creates a new DriveTrain. */
   public Shooter() {}
-
+  public void periodic() {
+    // This method will be called once per scheduler run
+  }
   public void shoot(){
     m_shooters.set(0.65);
   }

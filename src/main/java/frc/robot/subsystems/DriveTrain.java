@@ -23,7 +23,9 @@ public class DriveTrain extends SubsystemBase {
   public DriveTrain() {
     m_rightMotors.setInverted(true);
   }
-
+  public void periodic() {
+    // This method will be called once per scheduler run
+  }
   public void drive(double forwardsSpeed, double turningSpeed){
     m_differentialDrive.arcadeDrive(forwardsSpeed, turningSpeed);
   }
