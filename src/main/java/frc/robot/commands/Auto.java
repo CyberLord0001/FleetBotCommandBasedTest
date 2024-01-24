@@ -14,7 +14,8 @@ public class Auto extends SequentialCommandGroup {
   public Auto(DriveTrain driveTrain, CommandXboxController controller, Shooter shooter) {
     addCommands(
       new Drive(driveTrain, 0.5, 0.45).withTimeout(3), 
-      new Shoot(), new Drive(driveTrain, -0.5, -0.45).withTimeout(3),  
+      new Shoot().withTimeout(1), 
+      new Drive(driveTrain, -0.5, -0.45).withTimeout(3),  
       new Drive(driveTrain, -0.5, 0).withTimeout(3));
   }
 }
