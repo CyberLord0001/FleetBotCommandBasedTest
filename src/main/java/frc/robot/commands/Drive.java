@@ -9,9 +9,14 @@ import frc.robot.subsystems.DriveTrain;
 
 public class Drive extends CommandBase {
   private DriveTrain m_driveTrain;
+  private double m_forwardsSpeed;
+  private double m_turningSpeed;
   /** Creates a new Drive. */
   public Drive(DriveTrain driveTrain, double forwardsSpeed, double turningSpeed) {
-    driveTrain.drive(forwardsSpeed, turningSpeed);
+    m_driveTrain=driveTrain;
+    m_forwardsSpeed = forwardsSpeed;
+    m_turningSpeed = turningSpeed;
+    addRequirements(m_driveTrain);
   }
 
   // Called when the command is initially scheduled.
@@ -21,7 +26,7 @@ public class Drive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    m_driveTrain.drive(0.65, 0.85);;
+    m_driveTrain.drive(m_forwardsSpeed, m_turningSpeed);;
   }
 
   // Called once the command ends or is interrupted.

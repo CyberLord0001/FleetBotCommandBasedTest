@@ -12,7 +12,8 @@ public class Shoot extends CommandBase {
   private Shooter m_shooter;
 
   public Shoot(Shooter shooter) {
-    shooter.shoot();
+    m_shooter=shooter;
+    addRequirements(m_shooter);
   }
 
   // Called when the command is initially scheduled.
