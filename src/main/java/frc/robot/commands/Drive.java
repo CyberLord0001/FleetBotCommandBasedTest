@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.DriveTrain;
 
 public class Drive extends CommandBase {
+  private DriveTrain m_driveTrain;
   /** Creates a new Drive. */
   public Drive(DriveTrain driveTrain, double forwardsSpeed, double turningSpeed) {
     driveTrain.drive(forwardsSpeed, turningSpeed);
@@ -20,12 +21,14 @@ public class Drive extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    new Drive(new DriveTrain(), 0.85, 0.5);
+    m_driveTrain.drive(0.65, 0.85);;
   }
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+    m_driveTrain.stop();
+  }
 
   // Returns true when the command should end.
   @Override

@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Shooter;
 
 public class Shoot extends CommandBase {
+  private Shooter m_shooter;
 
   public Shoot(Shooter shooter) {
     shooter.shoot();
@@ -21,13 +22,13 @@ public class Shoot extends CommandBase {
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
-    new Shoot(new Shooter());
+    m_shooter.shoot();
   }
 
   // Called once the command ends or is interrupted.
   @Override
   public void end(boolean interrupted) {
-    new Shooter().stop();
+    m_shooter.stop();
   }
 
   // Returns true when the command should end.
