@@ -28,7 +28,7 @@ public class RobotContainer {
     m_controller.y()
       .whileTrue(new DriveWithController(m_driveTrain, m_controller, 0.25));
     m_controller.a()
-      .whileTrue(new Shoot());
+      .whileTrue(new Shoot(m_shooter));
   }
 
   public Command getAutonomousCommand() {
